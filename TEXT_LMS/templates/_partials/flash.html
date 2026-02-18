@@ -1,0 +1,16 @@
+{# templates/_partials/flash.html #}
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="container mt-3">
+      {% for category, msg in messages %}
+        <div class="alert alert-{{ category if category else 'secondary' }} alert-dismissible fade show shadow-sm" role="alert">
+          <div class="d-flex align-items-start gap-2">
+            <span class="badge text-bg-light border">알림</span>
+            <div class="flex-grow-1">{{ msg }}</div>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}

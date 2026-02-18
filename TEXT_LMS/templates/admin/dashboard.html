@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+{% block title %}관리자 대시보드{% endblock %}
+
+{% block content %}
+{% set title="관리자 대시보드" %}
+{% set desc="회원/문의 현황을 빠르게 확인합니다." %}
+{% include "_partials/page_header.html" %}
+
+<div class="row g-3">
+
+  <div class="col-md-6 col-lg-3">
+    <div class="card p-4">
+      <div class="text-muted small">전체 회원</div>
+      <div class="fw-bold" style="font-size:1.8rem;">{{ stats.total }}</div>
+      <div class="mt-2"><span class="badge-soft">TOTAL</span></div>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-lg-3">
+  <div class="card p-4 position-relative">
+    <div class="text-muted small">활성 회원</div>
+    <div class="fw-bold" style="font-size:1.8rem;">{{ stats.active }}</div>
+    <div class="mt-2"><span class="badge-soft">ACTIVE</span></div>
+
+        <a class="stretched-link" href="{{ url_for('admin.members', mode='active') }}"></a>
+      </div>
+    </div>
+
+
+  <div class="col-md-6 col-lg-3">
+  <div class="card p-4 position-relative">
+    <div class="text-muted small">비활성 회원</div>
+    <div class="fw-bold" style="font-size:1.8rem;">{{ stats.inactive }}</div>
+    <div class="mt-2"><span class="badge-soft">INACTIVE</span></div>
+
+    <a class="stretched-link" href="{{ url_for('admin.members', mode='inactive') }}"></a>
+  </div>
+</div>
+
+
+  <div class="col-md-6 col-lg-3">
+    <div class="card p-4">
+      <div class="text-muted small">오늘 신규 가입</div>
+      <div class="fw-bold" style="font-size:1.8rem;">{{ stats.today_join }}</div>
+      <div class="mt-2"><span class="badge-soft">TODAY</span></div>
+    </div>
+  </div>
+
+  <div class="col-lg-8">
+    <div class="card p-4">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="fw-bold">오늘 문의</div>
+        <a class="btn btn-soft disabled" href="#">문의 페이지</a>
+      </div>
+
+      <div class="mt-3 glass strong p-4 rounded-4">
+        <div class="text-muted">오늘 접수된 문의 수</div>
+        <div class="fw-bold" style="font-size:2rem;">{{ stats.today_inquiry }}</div>
+        <div class="small text-muted mt-1">※ 실제 문의 리스트는 문의 모듈에서 연결</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4">
+    <div class="card p-4">
+      <div class="fw-bold">빠른 메뉴</div>
+      <div class="d-grid gap-2 mt-3">
+        <a class="btn btn-brand" href="{{ url_for('admin.members') }}">회원 목록 관리</a>
+        <a class="btn btn-outline disabled" href="#">MBC소식 관리</a>
+        <a class="btn btn-soft disabled" href="#">커뮤니티 보기</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

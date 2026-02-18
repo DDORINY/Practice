@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+{% block title %}회원 상세{% endblock %}
+
+{% block content %}
+{% set title="회원 상세" %}
+{% set desc="연락처/주소/주민번호는 일부 마스킹 처리됩니다. 주민번호로 생일만 확인합니다." %}
+{% include "_partials/page_header.html" %}
+
+<div class="row g-3">
+  <div class="col-lg-4">
+    <div class="card p-4">
+      <div class="fw-bold" style="font-size:1.2rem;">{{ m.name }}</div>
+      <div class="text-muted small">ID: {{ m.uid }}</div>
+
+      <div class="mt-3">
+        {% if m.active == 1 %}
+          <span class="badge-soft">활성</span>
+        {% else %}
+          <span class="badge-soft">비활성</span>
+        {% endif %}
+      </div>
+
+      <hr class="my-4">
+
+      <div class="d-grid gap-2">
+        <a class="btn btn-soft" href="{{ url_for('admin.members') }}">목록으로</a>
+        {% if m.active == 1 %}
+          <form method="POST" action="{{ url_for('admin.member_disable', member_id=m.id) }}">
+            <button class="btn btn-outline" type="submit">비활성화</button>
+          </form>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-8">
+    <div class="card p-4">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <div class="text-muted small">연락처(마스킹)</div>
+          <div class="fw-semibold">{{ m.phone_masked }}</div>
+        </div>
+        <div class="col-md-6">
+          <div class="text-muted small">이메일(마스킹)</div>
+          <div class="fw-semibold">{{ m.email_masked }}</div>
+        </div>
+        <div class="col-12">
+          <div class="text-muted small">주소(마스킹)</div>
+          <div class="fw-semibold">{{ m.address_masked }}</div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="text-muted small">주민번호(마스킹)</div>
+          <div class="fw-semibold">{{ m.rrn_masked }}</div>
+        </div>
+        <div class="col-md-6">
+          <div class="text-muted small">생일(주민번호 기반)</div>
+          <div class="fw-semibold">{{ m.birthdate }}</div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="text-muted small">가입일자</div>
+          <div class="fw-semibold">{{ m.created_at }}</div>
+        </div>
+        <div class="col-md-6">
+          <div class="text-muted small">최근 로그인</div>
+          <div class="fw-semibold">{{ m.last_login_at }}</div>
+        </div>
+      </div>
+
+      <hr class="my-4">
+
+      <div class="glass strong p-3 rounded-4">
+        <div class="fw-bold">개인정보 표시 정책</div>
+        <div class="small text-muted mt-1">
+          관리자 화면에서는 연락처/주소/주민번호를 일부 마스킹하여 표시합니다.
+          주민번호 원문은 저장하지 않으며 생일 확인만 가능합니다.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
