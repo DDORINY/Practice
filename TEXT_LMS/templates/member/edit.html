@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+{% block title %}내 정보 수정{% endblock %}
+
+{% block content %}
+{% set title="내 정보 수정" %}
+{% set desc="이름/연락처/주소/이메일을 수정할 수 있습니다." %}
+{% include "_partials/page_header.html" %}
+
+<div class="row justify-content-center">
+  <div class="col-lg-9 col-xl-8">
+    <div class="card p-4 p-lg-5">
+
+      <form method="POST" action="{{ url_for('member.edit') }}" enctype="multipart/form-data">
+        <div class="row g-3">
+
+          <div class="col-12">
+            <div class="d-flex align-items-center gap-3">
+              <img id="profilePreview"
+                   src="{% if user and user.profile_img %}{{ url_for('static', filename='uploads/profile/' ~ user.profile_img) }}{% else %}{{ url_for('static', filename='img/default_profile.png') }}{% endif %}"
+                   class="rounded-circle border"
+                   style="width:92px;height:92px;object-fit:cover;"
+                   onerror="this.src='{{ url_for('static', filename='img/default_profile.png') }}'">
+              <div class="flex-grow-1">
+                <label class="form-label fw-semibold">프로필 이미지 변경 (선택)</label>
+                <input type="file"
+                       class="form-control"
+                       name="profile_img"
+                       accept="image/png, image/jpeg, image/webp"
+                       data-preview-target="#profilePreview">
+                <div class="form-text text-muted">업로드 시 새 이미지로 교체됩니다.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">아이디 (수정 불가)</label>
+            <input type="text" class="form-control" value="{{ user.uid if user else '' }}" readonly>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">생일 (수정 불가)</label>
+            <input type="text" class="form-control" value="{{ user.birthdate if user and user.birthdate else '' }}" readonly>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">이름</label>
+            <input type="text" name="name" class="form-control" required value="{{ user.name if user else '' }}">
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">연락처</label>
+            <input type="text" name="phone" class="form-control" required value="{{ user.phone if user else '' }}" data-phone>
+          </div>
+
+          <div class="col-12">
+            <label class="form-label fw-semibold">주소</label>
+            <input type="text" name="address" class="form-control" required value="{{ user.address if user else '' }}">
+          </div>
+
+          <div class="col-12">
+            <label class="form-label fw-semibold">이메일</label>
+            <input type="email" name="email" class="form-control" required value="{{ user.email if user else '' }}">
+          </div>
+
+          <div class="col-12 mt-3">
+            <div class="d-grid d-md-flex gap-2 justify-content-md-end">
+              <a class="btn btn-outline" href="{{ url_for('member.mypage') }}">취소</a>
+              <button class="btn btn-brand" type="submit">저장</button>
+            </div>
+          </div>
+
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

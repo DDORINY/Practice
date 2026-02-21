@@ -1,0 +1,152 @@
+{% extends "layout.html" %}
+{% block title %}마이페이지{% endblock %}
+
+{% block content %}
+{% set title="마이페이지" %}
+{% set desc="내 정보 확인 및 수정/탈퇴가 가능합니다." %}
+{% include "_partials/page_header.html" %}
+
+<div class="row g-3">
+  <!-- Profile card -->
+  <div class="col-lg-4">
+    <div class="card p-4">
+      <div class="d-flex align-items-center gap-3">
+        <img
+          src="{% if user and user.profile_img %}{{ url_for('static', filename='uploads/profile/' ~ user.profile_img) }}{% else %}{{ url_for('static', filename='img/default_profile.png') }}{% endif %}"
+          class="rounded-circle border"
+          style="width:86px;height:86px;object-fit:cover;"
+          onerror="this.src='{{ url_for('static', filename='img/default_profile.png') }}'">
+
+        <div class="flex-grow-1">
+          <div class="fw-bold" style="font-size:1.15rem;">{{ user.name if user else session.get('user_name','') }}</div>
+          <div class="text-muted small">ID: {{ user.uid if user else session.get('user_uid','') }}</div>
+          <div class="mt-2">
+            <span class="badge-soft">활성</span>
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-4">
+
+      <div class="d-grid gap-2">
+        <a class="btn btn-brand" href="{{ url_for('member.edit') }}">내 정보 수정</a>
+        <button class="btn btn-outline" data-bs-toggle="modal" data-bs-target="#withdrawModal">회원탈퇴</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info card -->
+  <div class="col-lg-8">
+    <div class="card p-4">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <div class="text-muted small">이름</div>
+          <div class="fw-semibold">{{ user.name if user else "-" }}</div>
+        </div>
+        <div class="col-md-6">
+          <div class="text-muted small">아이디</div>
+          <div class="fw-semibold">{{ user.uid if user else "-" }}</div>
+        </div>
+        <div class="col-md-6">
+          <div class="text-muted small">연락처</div>
+          <div class="fw-semibold">{{ user.phone if user else "-" }}</div>
+        </div>
+        <div class="col-md-6">
+          <div class="text-muted small">이메일</div>
+          <div class="fw-semibold">{{ user.email if user else "-" }}</div>
+        </div>
+        <div class="col-12">
+          <div class="text-muted small">주소</div>
+          <div class="fw-semibold">{{ user.address if user else "-" }}</div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="text-muted small">가입일자</div>
+          <div class="fw-semibold">{{ user.created_at if user and user.created_at else "-" }}</div>
+        </div>
+        <div class="col-md-6">
+          <div class="text-muted small">최근 로그인</div>
+          <div class="fw-semibold">{{ user.last_login_at if user and user.last_login_at else "-" }}</div>
+        </div>
+      </div>
+
+      <hr class="my-4">
+
+      <!-- 내 문의 목록: 백엔드 붙이면 여기 표/리스트로 렌더 -->
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="fw-bold">내 문의</div>
+        <a class="btn btn-soft disabled" href="#">문의 목록 보기</a>
+
+      </div>
+
+      {% if inquiries is defined %}
+        {% if inquiries %}
+          <div class="table-responsive mt-3">
+            <table class="table align-middle">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>제목</th>
+                  <th>상태</th>
+                  <th>작성일</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for q in inquiries %}
+                <tr>
+                  <td>{{ q.id }}</td>
+                  <td class="fw-semibold">{{ q.title }}</td>
+                  <td><span class="badge-soft">{{ q.status }}</span></td>
+                  <td class="text-muted">{{ q.created_at }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% else %}
+          {% set title="문의 내역이 없습니다." %}
+          {% set desc="문의 페이지에서 새 문의를 등록할 수 있어요." %}
+          {% set action_html='<a class="btn btn-brand disabled" href="#">문의하기</a>' %}
+          {% include "_partials/empty_state.html" %}
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- Withdraw Modal -->
+<div class="modal fade" id="withdrawModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content glass strong">
+      <div class="modal-header border-0">
+        <h5 class="modal-title fw-bold">회원탈퇴</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-2">탈퇴 시 계정은 <b>비활성화</b> 처리되며, <b>1년 후 자동 삭제</b>됩니다.</p>
+        <div class="form-check mt-3">
+          <input class="form-check-input" type="checkbox" id="agreeWithdraw">
+          <label class="form-check-label" for="agreeWithdraw">
+            안내사항을 확인했습니다.
+          </label>
+        </div>
+      </div>
+      <div class="modal-footer border-0">
+        <button class="btn btn-outline" data-bs-dismiss="modal">취소</button>
+        <form method="POST" action="{{ url_for('member.withdraw') }}">
+          <button class="btn btn-brand" type="submit" id="withdrawBtn" disabled>탈퇴하기</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const chk = document.getElementById("agreeWithdraw");
+    const btn = document.getElementById("withdrawBtn");
+    if (chk && btn) chk.addEventListener("change", () => btn.disabled = !chk.checked);
+  });
+</script>
+
+{% endblock %}

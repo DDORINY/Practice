@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block title %}HOME{% endblock %}
+{% block main_class %}flex-fill p-0{% endblock %}
+
+{% block content %}
+<section class="hero-fullscreen">
+  <div class="hero-surface">
+
+    <div class="hero-copy">
+      <div class="hero-kicker">MBC Academy LMS</div>
+
+      <h1 class="hero-title"><strong>
+        학습을 더 간편하게<br>
+        <span class="hero-em">관리하세요</span></strong>
+      </h1>
+
+      <p class="hero-desc">
+        회원관리 · 강의신청 · 내 강의실 · 커뮤니티까지<br>한 곳에서.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-brand" href="{{ url_for('member.join') }}">회원가입</a>
+        <a class="btn btn-soft" href="{{ url_for('member.login') }}">로그인</a>
+      </div>
+    </div>
+
+    <div class="hero-media">
+      <img src="{{ url_for('static', filename='img/hero.jpg') }}" alt="hero">
+      <div class="hero-overlay"></div>
+        <!-- ✅ 세로 MBC -->
+      <div class="hero-vertical-text">MBC</div>
+    </div>
+
+
+  </div>
+</section>
+{% endblock %}

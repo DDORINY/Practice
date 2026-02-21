@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card p-4">
+  <h5 class="fw-bold mb-3">영양성분표 업로드</h5>
+  <form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label class="form-label">제품명</label>
+      <input class="form-control" name="product_name" placeholder="예: 프로틴바 초코">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">이미지</label>
+      <input class="form-control" type="file" name="image" accept="image/*" required>
+    </div>
+    <button class="btn btn-primary">분석</button>
+  </form>
+</div>
+{% endblock %}

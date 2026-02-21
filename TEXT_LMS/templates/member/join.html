@@ -1,0 +1,113 @@
+{% extends "layout.html" %}
+{% block title %}회원가입{% endblock %}
+
+{% block content %}
+{% set title="회원가입" %}
+{% set desc="탈퇴 후 1년간 보관 후 자동 삭제됩니다. (필수 동의)" %}
+{% include "_partials/page_header.html" %}
+
+<div class="row justify-content-center">
+  <div class="col-lg-9 col-xl-8">
+    <div class="card p-4 p-lg-5">
+
+      <form method="POST" action="{{ url_for('member.join') }}" enctype="multipart/form-data">
+        <div class="row g-3">
+
+          <!-- 프로필 -->
+          <div class="col-12">
+            <div class="d-flex align-items-center gap-3">
+              <div>
+                <img id="profilePreview"
+                     src="{{ url_for('static', filename='img/default_profile.png') }}"
+                     onerror="this.style.display='none'"
+                     class="rounded-circle border"
+                     style="width:92px;height:92px;object-fit:cover;">
+              </div>
+              <div class="flex-grow-1">
+                <label class="form-label fw-semibold">프로필 이미지 (선택)</label>
+                <input type="file"
+                       class="form-control"
+                       name="profile_img"
+                       accept="image/png, image/jpeg, image/webp"
+                       data-preview-target="#profilePreview">
+                <div class="form-text text-muted">png/jpg/jpeg/webp 파일만 업로드 가능</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 기본 정보 -->
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">이름</label>
+            <input type="text" name="name" class="form-control" required placeholder="홍길동">
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">아이디</label>
+            <input type="text" name="uid" class="form-control" required placeholder="아이디 입력">
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">비밀번호</label>
+            <input type="password" name="pw" class="form-control" required placeholder="비밀번호 입력">
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">비밀번호 확인</label>
+            <input type="password" name="pw_confirm" class="form-control" required placeholder="비밀번호 재입력">
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">연락처</label>
+            <input type="text" name="phone" class="form-control" required placeholder="010-0000-0000" data-phone>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">이메일</label>
+            <input type="email" name="email" class="form-control" required placeholder="name@example.com">
+          </div>
+
+          <div class="col-12">
+            <label class="form-label fw-semibold">주소</label>
+            <input type="text" name="address" class="form-control" required placeholder="도로명 주소 / 상세주소">
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">주민번호</label>
+            <input type="text" name="rrn" class="form-control" required placeholder="000000-0000000" data-rrn>
+            <div class="form-text text-muted">주민번호 원문은 저장하지 않고 생일 확인에만 사용합니다.</div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fw-semibold">개인정보 보관 안내</label>
+            <div class="glass strong p-3 rounded-4">
+              <div class="small text-muted">
+                탈퇴 시 계정은 비활성화되며, 1년 보관 후 자동 삭제됩니다.
+              </div>
+            </div>
+          </div>
+
+          <!-- 동의 -->
+          <div class="col-12 mt-2">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="retention_agreed" value="1" required>
+              <label class="form-check-label">
+                개인정보 보관기간 안내(탈퇴 후 1년 보관 후 삭제)에 동의합니다. <span class="text-danger">*</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- 버튼 -->
+          <div class="col-12 mt-3">
+            <div class="d-grid d-md-flex gap-2 justify-content-md-end">
+              <a href="{{ url_for('member.login') }}" class="btn btn-outline">이미 계정이 있어요</a>
+              <button class="btn btn-brand" type="submit">가입하기</button>
+            </div>
+          </div>
+
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

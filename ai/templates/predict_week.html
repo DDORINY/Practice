@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card p-4">
+  <h5 class="fw-bold mb-2">다음 7일 체중 예측</h5>
+
+  {% if not result.ok %}
+    <div class="alert alert-warning">{{ result.message }}</div>
+  {% else %}
+    <div class="text-muted small mb-3">
+      last: {{ result.last_weight_kg }}kg /
+      slope: {{ result.final_slope_kg_per_day }}kg/day /
+      avg balance: {{ result.avg_balance_kcal_per_day }}kcal/day
+    </div>
+
+    <canvas id="predChart"></canvas>
+
+    <hr>
+    <h6 class="fw-bold">예측 값</h6>
+    <ul class="mb-0">
+      {% for p in result.predictions %}
+        <li>{{ p.date }} : {{ p.pred_weight_kg }}kg</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+{% if result.ok %}
+const labels = {{ result.predictions | map(attribute='date') | list | tojson }};
+const data = {{ result.predictions | map(attribute='pred_weight_kg') | list | tojson }};
+
+new Chart(document.getElementById('predChart'), {
+  type: 'line',
+  data: { labels, datasets: [{ label: '예측 체중(kg)', data, tension: 0.3 }] },
+  options: { responsive: true }
+});
+{% endif %}
+</script>
+{% endblock %}
