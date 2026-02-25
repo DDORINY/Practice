@@ -1,0 +1,760 @@
+[
+  {
+    "id": 0,
+    "name_kr": "바보",
+    "name_en": "The Fool",
+    "arcana": "major",
+    "number": 0,
+    "upright_keywords": ["시작", "자유", "모험", "가능성"],
+    "reversed_keywords": ["충동", "무모함", "불안정"]
+  },
+  {
+    "id": 1,
+    "name_kr": "마법사",
+    "name_en": "The Magician",
+    "arcana": "major",
+    "number": 1,
+    "upright_keywords": ["실행력", "창조", "의지", "능력"],
+    "reversed_keywords": ["속임수", "자신감 부족", "기만"]
+  },
+  {
+    "id": 2,
+    "name_kr": "여사제",
+    "name_en": "The High Priestess",
+    "arcana": "major",
+    "number": 2,
+    "upright_keywords": ["직관", "비밀", "내면", "통찰"],
+    "reversed_keywords": ["혼란", "불신", "은폐"]
+  },
+  {
+    "id": 3,
+    "name_kr": "여황제",
+    "name_en": "The Empress",
+    "arcana": "major",
+    "number": 3,
+    "upright_keywords": ["풍요", "애정", "보호", "성장"],
+    "reversed_keywords": ["의존", "과보호", "정체"]
+  },
+  {
+    "id": 4,
+    "name_kr": "황제",
+    "name_en": "The Emperor",
+    "arcana": "major",
+    "number": 4,
+    "upright_keywords": ["권위", "안정", "리더십", "책임"],
+    "reversed_keywords": ["독단", "통제 과잉", "권위주의"]
+  },
+  {
+    "id": 5,
+    "name_kr": "교황",
+    "name_en": "The Hierophant",
+    "arcana": "major",
+    "number": 5,
+    "upright_keywords": ["전통", "조언", "가르침", "신념"],
+    "reversed_keywords": ["고집", "형식주의", "반항"]
+  },
+  {
+    "id": 6,
+    "name_kr": "연인",
+    "name_en": "The Lovers",
+    "arcana": "major",
+    "number": 6,
+    "upright_keywords": ["선택", "관계", "조화", "사랑"],
+    "reversed_keywords": ["갈등", "불균형", "우유부단"]
+  },
+  {
+    "id": 7,
+    "name_kr": "전차",
+    "name_en": "The Chariot",
+    "arcana": "major",
+    "number": 7,
+    "upright_keywords": ["전진", "승리", "의지", "통제"],
+    "reversed_keywords": ["방향 상실", "좌절", "통제력 부족"]
+  },
+  {
+    "id": 8,
+    "name_kr": "힘",
+    "name_en": "Strength",
+    "arcana": "major",
+    "number": 8,
+    "upright_keywords": ["용기", "인내", "자기통제", "내면의 힘"],
+    "reversed_keywords": ["자신감 부족", "의욕 저하", "불안"]
+  },
+  {
+    "id": 9,
+    "name_kr": "은둔자",
+    "name_en": "The Hermit",
+    "arcana": "major",
+    "number": 9,
+    "upright_keywords": ["성찰", "고독", "탐색", "지혜"],
+    "reversed_keywords": ["고립", "외로움", "회피"]
+  },
+  {
+    "id": 10,
+    "name_kr": "운명의 수레바퀴",
+    "name_en": "Wheel of Fortune",
+    "arcana": "major",
+    "number": 10,
+    "upright_keywords": ["변화", "전환점", "기회", "운"],
+    "reversed_keywords": ["악재", "정체", "예상치 못한 변화"]
+  },
+  {
+    "id": 11,
+    "name_kr": "정의",
+    "name_en": "Justice",
+    "arcana": "major",
+    "number": 11,
+    "upright_keywords": ["균형", "공정", "판단", "책임"],
+    "reversed_keywords": ["불공정", "편향", "왜곡"]
+  },
+  {
+    "id": 12,
+    "name_kr": "매달린 사람",
+    "name_en": "The Hanged Man",
+    "arcana": "major",
+    "number": 12,
+    "upright_keywords": ["희생", "관점 변화", "기다림"],
+    "reversed_keywords": ["지연", "집착", "저항"]
+  },
+  {
+    "id": 13,
+    "name_kr": "죽음",
+    "name_en": "Death",
+    "arcana": "major",
+    "number": 13,
+    "upright_keywords": ["종결", "변화", "재생"],
+    "reversed_keywords": ["두려움", "변화 거부", "정체"]
+  },
+  {
+    "id": 14,
+    "name_kr": "절제",
+    "name_en": "Temperance",
+    "arcana": "major",
+    "number": 14,
+    "upright_keywords": ["조화", "균형", "조율"],
+    "reversed_keywords": ["과함", "불균형", "조급함"]
+  },
+  {
+    "id": 15,
+    "name_kr": "악마",
+    "name_en": "The Devil",
+    "arcana": "major",
+    "number": 15,
+    "upright_keywords": ["집착", "유혹", "속박"],
+    "reversed_keywords": ["해방", "각성", "중독 극복"]
+  },
+  {
+    "id": 16,
+    "name_kr": "탑",
+    "name_en": "The Tower",
+    "arcana": "major",
+    "number": 16,
+    "upright_keywords": ["붕괴", "충격", "급변"],
+    "reversed_keywords": ["지연된 위기", "회피"]
+  },
+  {
+    "id": 17,
+    "name_kr": "별",
+    "name_en": "The Star",
+    "arcana": "major",
+    "number": 17,
+    "upright_keywords": ["희망", "회복", "영감"],
+    "reversed_keywords": ["실망", "의심", "낙담"]
+  },
+  {
+    "id": 18,
+    "name_kr": "달",
+    "name_en": "The Moon",
+    "arcana": "major",
+    "number": 18,
+    "upright_keywords": ["불안", "환상", "무의식"],
+    "reversed_keywords": ["진실 드러남", "명확해짐"]
+  },
+  {
+    "id": 19,
+    "name_kr": "태양",
+    "name_en": "The Sun",
+    "arcana": "major",
+    "number": 19,
+    "upright_keywords": ["성공", "행복", "활력"],
+    "reversed_keywords": ["과신", "지연된 성공"]
+  },
+  {
+    "id": 20,
+    "name_kr": "심판",
+    "name_en": "Judgement",
+    "arcana": "major",
+    "number": 20,
+    "upright_keywords": ["각성", "결단", "재탄생"],
+    "reversed_keywords": ["망설임", "후회"]
+  },
+  {
+    "id": 21,
+    "name_kr": "세계",
+    "name_en": "The World",
+    "arcana": "major",
+    "number": 21,
+    "upright_keywords": ["완성", "성취", "마무리"],
+    "reversed_keywords": ["미완성", "지연"]
+  },
+{
+  "id": 22,
+  "name_kr": "완드 에이스",
+  "name_en": "Ace of Wands",
+  "arcana": "minor",
+  "suit": "wands",
+  "number": 1,
+  "upright_keywords": ["열정", "시작", "영감"],
+  "reversed_keywords": ["의욕 저하", "지연"]
+},
+{
+  "id": 23,
+  "name_kr": "완드 2",
+  "name_en": "Two of Wands",
+  "arcana": "minor",
+  "suit": "wands",
+  "number": 2,
+  "upright_keywords": ["계획", "선택", "확장"],
+  "reversed_keywords": ["우유부단", "불안"]
+},
+{
+  "id": 24,
+  "name_kr": "완드 3",
+  "name_en": "Three of Wands",
+  "arcana": "minor",
+  "suit": "wands",
+  "number": 3,
+  "upright_keywords": ["성장", "전망", "기대"],
+  "reversed_keywords": ["지연", "계획 수정"]
+},
+{
+  "id": 25,
+  "name_kr": "완드 4",
+  "name_en": "Four of Wands",
+  "arcana": "minor",
+  "suit": "wands",
+  "number": 4,
+  "upright_keywords": ["안정", "축하", "기쁨"],
+  "reversed_keywords": ["불안정", "갈등"]
+},
+{
+  "id": 26,
+  "name_kr": "완드 5",
+  "name_en": "Five of Wands",
+  "arcana": "minor",
+  "suit": "wands",
+  "number": 5,
+  "upright_keywords": ["경쟁", "갈등", "충돌"],
+  "reversed_keywords": ["화해", "긴장 완화"]
+},
+{
+  "id": 27,
+  "name_kr": "완드 6",
+  "name_en": "Six of Wands",
+  "arcana": "minor",
+  "suit": "wands",
+  "number": 6,
+  "upright_keywords": ["승리", "인정", "성공"],
+  "reversed_keywords": ["과신", "인정 부족"]
+},
+{
+  "id": 28,
+  "name_kr": "완드 7",
+  "name_en": "Seven of Wands",
+  "arcana": "minor",
+  "suit": "wands",
+  "number": 7,
+  "upright_keywords": ["방어", "도전", "버팀"],
+  "reversed_keywords": ["압박", "포기"]
+},
+{
+  "id": 29,
+  "name_kr": "완드 8",
+  "name_en": "Eight of Wands",
+  "arcana": "minor",
+  "suit": "wands",
+  "number": 8,
+  "upright_keywords": ["속도", "소식", "진전"],
+  "reversed_keywords": ["지연", "혼선"]
+},
+{
+  "id": 30,
+  "name_kr": "완드 9",
+  "name_en": "Nine of Wands",
+  "arcana": "minor",
+  "suit": "wands",
+  "number": 9,
+  "upright_keywords": ["인내", "경계", "지속"],
+  "reversed_keywords": ["피로", "방어 해제"]
+},
+{
+  "id": 31,
+  "name_kr": "완드 10",
+  "name_en": "Ten of Wands",
+  "arcana": "minor",
+  "suit": "wands",
+  "number": 10,
+  "upright_keywords": ["부담", "책임 과다", "압박"],
+  "reversed_keywords": ["해소", "짐 내려놓기"]
+},
+{
+  "id": 32,
+  "name_kr": "완드 페이지",
+  "name_en": "Page of Wands",
+  "arcana": "minor",
+  "suit": "wands",
+  "number": 11,
+  "upright_keywords": ["호기심", "새 소식", "탐험"],
+  "reversed_keywords": ["미숙", "변덕"]
+},
+{
+  "id": 33,
+  "name_kr": "완드 나이트",
+  "name_en": "Knight of Wands",
+  "arcana": "minor",
+  "suit": "wands",
+  "number": 12,
+  "upright_keywords": ["행동", "열정", "도전"],
+  "reversed_keywords": ["충동", "불안정"]
+},
+{
+  "id": 34,
+  "name_kr": "완드 퀸",
+  "name_en": "Queen of Wands",
+  "arcana": "minor",
+  "suit": "wands",
+  "number": 13,
+  "upright_keywords": ["매력", "자신감", "리더십"],
+  "reversed_keywords": ["질투", "불안"]
+},
+{
+  "id": 35,
+  "name_kr": "완드 킹",
+  "name_en": "King of Wands",
+  "arcana": "minor",
+  "suit": "wands",
+  "number": 14,
+  "upright_keywords": ["비전", "통솔력", "결단력"],
+  "reversed_keywords": ["독단", "조급함"]
+},
+{
+  "id": 36,
+  "name_kr": "컵 에이스",
+  "name_en": "Ace of Cups",
+  "arcana": "minor",
+  "suit": "cups",
+  "number": 1,
+  "upright_keywords": ["새로운 사랑", "감정의 시작", "기쁨"],
+  "reversed_keywords": ["감정 억제", "실망"]
+},
+{
+  "id": 37,
+  "name_kr": "컵 2",
+  "name_en": "Two of Cups",
+  "arcana": "minor",
+  "suit": "cups",
+  "number": 2,
+  "upright_keywords": ["상호 애정", "연결", "파트너십"],
+  "reversed_keywords": ["불화", "균형 깨짐"]
+},
+{
+  "id": 38,
+  "name_kr": "컵 3",
+  "name_en": "Three of Cups",
+  "arcana": "minor",
+  "suit": "cups",
+  "number": 3,
+  "upright_keywords": ["축하", "우정", "모임"],
+  "reversed_keywords": ["과음", "소외"]
+},
+{
+  "id": 39,
+  "name_kr": "컵 4",
+  "name_en": "Four of Cups",
+  "arcana": "minor",
+  "suit": "cups",
+  "number": 4,
+  "upright_keywords": ["권태", "무관심", "내면 성찰"],
+  "reversed_keywords": ["기회 인식", "감정 회복"]
+},
+{
+  "id": 40,
+  "name_kr": "컵 5",
+  "name_en": "Five of Cups",
+  "arcana": "minor",
+  "suit": "cups",
+  "number": 5,
+  "upright_keywords": ["실망", "상실", "후회"],
+  "reversed_keywords": ["회복", "희망 발견"]
+},
+{
+  "id": 41,
+  "name_kr": "컵 6",
+  "name_en": "Six of Cups",
+  "arcana": "minor",
+  "suit": "cups",
+  "number": 6,
+  "upright_keywords": ["추억", "과거", "순수함"],
+  "reversed_keywords": ["과거 집착", "성장 필요"]
+},
+{
+  "id": 42,
+  "name_kr": "컵 7",
+  "name_en": "Seven of Cups",
+  "arcana": "minor",
+  "suit": "cups",
+  "number": 7,
+  "upright_keywords": ["선택지", "환상", "혼란"],
+  "reversed_keywords": ["현실 직시", "결단"]
+},
+{
+  "id": 43,
+  "name_kr": "컵 8",
+  "name_en": "Eight of Cups",
+  "arcana": "minor",
+  "suit": "cups",
+  "number": 8,
+  "upright_keywords": ["떠남", "감정 정리", "전환"],
+  "reversed_keywords": ["미련", "복귀"]
+},
+{
+  "id": 44,
+  "name_kr": "컵 9",
+  "name_en": "Nine of Cups",
+  "arcana": "minor",
+  "suit": "cups",
+  "number": 9,
+  "upright_keywords": ["만족", "소원 성취", "행복"],
+  "reversed_keywords": ["과욕", "허전함"]
+},
+{
+  "id": 45,
+  "name_kr": "컵 10",
+  "name_en": "Ten of Cups",
+  "arcana": "minor",
+  "suit": "cups",
+  "number": 10,
+  "upright_keywords": ["행복한 관계", "가정의 평화", "완전한 사랑"],
+  "reversed_keywords": ["가정 갈등", "불화"]
+},
+{
+  "id": 46,
+  "name_kr": "컵 페이지",
+  "name_en": "Page of Cups",
+  "arcana": "minor",
+  "suit": "cups",
+  "number": 11,
+  "upright_keywords": ["고백", "순수한 감정", "메시지"],
+  "reversed_keywords": ["감정 미숙", "변덕"]
+},
+{
+  "id": 47,
+  "name_kr": "컵 나이트",
+  "name_en": "Knight of Cups",
+  "arcana": "minor",
+  "suit": "cups",
+  "number": 12,
+  "upright_keywords": ["로맨틱", "제안", "고백"],
+  "reversed_keywords": ["허세", "감정 기복"]
+},
+{
+  "id": 48,
+  "name_kr": "컵 퀸",
+  "name_en": "Queen of Cups",
+  "arcana": "minor",
+  "suit": "cups",
+  "number": 13,
+  "upright_keywords": ["공감", "감성", "배려"],
+  "reversed_keywords": ["감정 과잉", "의존"]
+},
+{
+  "id": 49,
+  "name_kr": "컵 킹",
+  "name_en": "King of Cups",
+  "arcana": "minor",
+  "suit": "cups",
+  "number": 14,
+  "upright_keywords": ["감정 통제", "성숙", "안정"],
+  "reversed_keywords": ["감정 억압", "불안정"]
+},
+{
+  "id": 50,
+  "name_kr": "소드 에이스",
+  "name_en": "Ace of Swords",
+  "arcana": "minor",
+  "suit": "swords",
+  "number": 1,
+  "upright_keywords": ["진실", "명확성", "결단"],
+  "reversed_keywords": ["오해", "혼란"]
+},
+{
+  "id": 51,
+  "name_kr": "소드 2",
+  "name_en": "Two of Swords",
+  "arcana": "minor",
+  "suit": "swords",
+  "number": 2,
+  "upright_keywords": ["회피", "결정 미룸"],
+  "reversed_keywords": ["결단", "현실 직시"]
+},
+{
+  "id": 52,
+  "name_kr": "소드 3",
+  "name_en": "Three of Swords",
+  "arcana": "minor",
+  "suit": "swords",
+  "number": 3,
+  "upright_keywords": ["상처", "이별", "고통"],
+  "reversed_keywords": ["회복", "용서"]
+},
+{
+  "id": 53,
+  "name_kr": "소드 4",
+  "name_en": "Four of Swords",
+  "arcana": "minor",
+  "suit": "swords",
+  "number": 4,
+  "upright_keywords": ["휴식", "재정비"],
+  "reversed_keywords": ["불안", "회복 지연"]
+},
+{
+  "id": 54,
+  "name_kr": "소드 5",
+  "name_en": "Five of Swords",
+  "arcana": "minor",
+  "suit": "swords",
+  "number": 5,
+  "upright_keywords": ["갈등", "패배감"],
+  "reversed_keywords": ["화해", "갈등 해소"]
+},
+{
+  "id": 55,
+  "name_kr": "소드 6",
+  "name_en": "Six of Swords",
+  "arcana": "minor",
+  "suit": "swords",
+  "number": 6,
+  "upright_keywords": ["이동", "전환", "회복"],
+  "reversed_keywords": ["과거 집착", "정체"]
+},
+{
+  "id": 56,
+  "name_kr": "소드 7",
+  "name_en": "Seven of Swords",
+  "arcana": "minor",
+  "suit": "swords",
+  "number": 7,
+  "upright_keywords": ["기만", "은밀함"],
+  "reversed_keywords": ["발각", "정직"]
+},
+{
+  "id": 57,
+  "name_kr": "소드 8",
+  "name_en": "Eight of Swords",
+  "arcana": "minor",
+  "suit": "swords",
+  "number": 8,
+  "upright_keywords": ["속박", "무력감"],
+  "reversed_keywords": ["해방", "자각"]
+},
+{
+  "id": 58,
+  "name_kr": "소드 9",
+  "name_en": "Nine of Swords",
+  "arcana": "minor",
+  "suit": "swords",
+  "number": 9,
+  "upright_keywords": ["불안", "걱정", "악몽"],
+  "reversed_keywords": ["회복", "불안 감소"]
+},
+{
+  "id": 59,
+  "name_kr": "소드 10",
+  "name_en": "Ten of Swords",
+  "arcana": "minor",
+  "suit": "swords",
+  "number": 10,
+  "upright_keywords": ["종결", "배신", "최악의 상황"],
+  "reversed_keywords": ["회복", "재기"]
+},
+{
+  "id": 60,
+  "name_kr": "소드 페이지",
+  "name_en": "Page of Swords",
+  "arcana": "minor",
+  "suit": "swords",
+  "number": 11,
+  "upright_keywords": ["정보", "호기심"],
+  "reversed_keywords": ["소문", "오해"]
+},
+{
+  "id": 61,
+  "name_kr": "소드 나이트",
+  "name_en": "Knight of Swords",
+  "arcana": "minor",
+  "suit": "swords",
+  "number": 12,
+  "upright_keywords": ["돌진", "직설"],
+  "reversed_keywords": ["무모함", "공격성"]
+},
+{
+  "id": 62,
+  "name_kr": "소드 퀸",
+  "name_en": "Queen of Swords",
+  "arcana": "minor",
+  "suit": "swords",
+  "number": 13,
+  "upright_keywords": ["이성", "냉철함"],
+  "reversed_keywords": ["냉정함 과다", "비판적"]
+},
+{
+  "id": 63,
+  "name_kr": "소드 킹",
+  "name_en": "King of Swords",
+  "arcana": "minor",
+  "suit": "swords",
+  "number": 14,
+  "upright_keywords": ["판단력", "권위"],
+  "reversed_keywords": ["독단", "비판 과다"]
+},
+{
+  "id": 64,
+  "name_kr": "펜타클 에이스",
+  "name_en": "Ace of Pentacles",
+  "arcana": "minor",
+  "suit": "pentacles",
+  "number": 1,
+  "upright_keywords": ["금전 기회", "안정 시작"],
+  "reversed_keywords": ["기회 상실", "재정 불안"]
+},
+{
+  "id": 65,
+  "name_kr": "펜타클 2",
+  "name_en": "Two of Pentacles",
+  "arcana": "minor",
+  "suit": "pentacles",
+  "number": 2,
+  "upright_keywords": ["균형", "조율"],
+  "reversed_keywords": ["불균형", "과부하"]
+},
+{
+  "id": 66,
+  "name_kr": "펜타클 3",
+  "name_en": "Three of Pentacles",
+  "arcana": "minor",
+  "suit": "pentacles",
+  "number": 3,
+  "upright_keywords": ["협업", "팀워크"],
+  "reversed_keywords": ["협력 부족"]
+},
+{
+  "id": 67,
+  "name_kr": "펜타클 4",
+  "name_en": "Four of Pentacles",
+  "arcana": "minor",
+  "suit": "pentacles",
+  "number": 4,
+  "upright_keywords": ["집착", "보유"],
+  "reversed_keywords": ["놓아줌", "지출"]
+},
+{
+  "id": 68,
+  "name_kr": "펜타클 5",
+  "name_en": "Five of Pentacles",
+  "arcana": "minor",
+  "suit": "pentacles",
+  "number": 5,
+  "upright_keywords": ["재정 어려움", "결핍"],
+  "reversed_keywords": ["회복", "지원"]
+},
+{
+  "id": 69,
+  "name_kr": "펜타클 6",
+  "name_en": "Six of Pentacles",
+  "arcana": "minor",
+  "suit": "pentacles",
+  "number": 6,
+  "upright_keywords": ["지원", "나눔"],
+  "reversed_keywords": ["불균형 거래"]
+},
+{
+  "id": 70,
+  "name_kr": "펜타클 7",
+  "name_en": "Seven of Pentacles",
+  "arcana": "minor",
+  "suit": "pentacles",
+  "number": 7,
+  "upright_keywords": ["기다림", "평가"],
+  "reversed_keywords": ["조급함"]
+},
+{
+  "id": 71,
+  "name_kr": "펜타클 8",
+  "name_en": "Eight of Pentacles",
+  "arcana": "minor",
+  "suit": "pentacles",
+  "number": 8,
+  "upright_keywords": ["노력", "기술 향상"],
+  "reversed_keywords": ["집중 부족"]
+},
+{
+  "id": 72,
+  "name_kr": "펜타클 9",
+  "name_en": "Nine of Pentacles",
+  "arcana": "minor",
+  "suit": "pentacles",
+  "number": 9,
+  "upright_keywords": ["독립", "안정"],
+  "reversed_keywords": ["의존"]
+},
+{
+  "id": 73,
+  "name_kr": "펜타클 10",
+  "name_en": "Ten of Pentacles",
+  "arcana": "minor",
+  "suit": "pentacles",
+  "number": 10,
+  "upright_keywords": ["재정 안정", "가정 번영"],
+  "reversed_keywords": ["재정 갈등"]
+},
+{
+  "id": 74,
+  "name_kr": "펜타클 페이지",
+  "name_en": "Page of Pentacles",
+  "arcana": "minor",
+  "suit": "pentacles",
+  "number": 11,
+  "upright_keywords": ["새로운 기회", "학습"],
+  "reversed_keywords": ["미숙", "지연"]
+},
+{
+  "id": 75,
+  "name_kr": "펜타클 나이트",
+  "name_en": "Knight of Pentacles",
+  "arcana": "minor",
+  "suit": "pentacles",
+  "number": 12,
+  "upright_keywords": ["성실", "꾸준함"],
+  "reversed_keywords": ["게으름", "지체"]
+},
+{
+  "id": 76,
+  "name_kr": "펜타클 퀸",
+  "name_en": "Queen of Pentacles",
+  "arcana": "minor",
+  "suit": "pentacles",
+  "number": 13,
+  "upright_keywords": ["현실적", "보살핌"],
+  "reversed_keywords": ["물질 집착"]
+},
+{
+  "id": 77,
+  "name_kr": "펜타클 킹",
+  "name_en": "King of Pentacles",
+  "arcana": "minor",
+  "suit": "pentacles",
+  "number": 14,
+  "upright_keywords": ["재정 능력", "안정된 리더"],
+  "reversed_keywords": ["탐욕", "물질주의"]
+}
+]
