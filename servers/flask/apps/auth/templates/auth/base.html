@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- 본 페이지는 html 중복을 처리하는 기본적인 상속 페이지로 활용된다. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title은 상속처에서 받아 온다. -->
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('crud.static', filename='style.css') }}" />
+</head>
+<body>
+
+    <!-- content를 상속처에서 구현한다. -->
+    {% block content %}{% endblock %}
+
+    <!-- 상속처에서 개별의 구현이 필요하는 부분에는 여러개의 블럭을 사용할 수 있다. -->
+    <!--  {% block 블록이름 %}{% endblock %}-->
+
+</body>
+</html>

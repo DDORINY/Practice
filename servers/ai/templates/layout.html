@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <!-- 휴대폰에서도 화면 크기에 맞게 보이도록 하는 설정입니다. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Ip cam{% endblock %}</title>
+
+    <!-- Bootstrap은 버튼, 카드, 배치 같은 기본 디자인을 쉽게 쓰게 해주는 CSS입니다. -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* 위쪽 고정 메뉴가 본문을 가리지 않도록 여백을 둡니다. */
+        body { padding-top: 70px; }
+    </style>
+</head>
+<body>
+    <!-- 모든 페이지 위에 공통으로 보이는 상단 메뉴입니다. -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">AI Monitor</a>
+        </div>
+    </nav>
+
+    <!-- 각 페이지가 자기 내용을 끼워 넣는 자리입니다. -->
+    {% block content %}{% endblock %}
+
+    <!-- Bootstrap의 동작 기능을 위한 JavaScript입니다. -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

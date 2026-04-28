@@ -1,0 +1,33 @@
+from flask_wtf import FlaskForm
+from wtforms import PasswordField, StringField, SubmitField
+from wtforms.validators import DataRequired, Email, Length
+
+# 사용자 신규 작성과 사용자 편집 폼 클래스
+class UserForm(FlaskForm):
+    # 사용자 폼의 username 속성의 라벨과 검증을 설정한다.
+    username = StringField(
+        "사용자명",
+        validators=[
+            DataRequired(message="사용자명을 입력해주세요."),
+            Length( max=30, message="사용자명은 3자 이상 30자 이하로 입력해주세요."),
+        ],
+    )
+
+    # 사용자 폼 email 속성의 라벨과 검증을 설정한다. 
+    email = StringField(
+        "이메일 주소",
+        validators=[
+            DataRequired(message="이메일 주소를 입력해주세요."),
+            Email(message="유효한 이메일 주소를 입력해주세요."),
+        ],
+    )
+
+    # 사용자 폼 password 속성의 라벨과 검증을 설정한다.
+    password = PasswordField(
+        "비밀번호",
+        validators=[
+            DataRequired(message="비밀번호를 입력해주세요.")]
+    )
+
+    # 사용자폼 submit의 문구를 설정한다.
+    submit = SubmitField("신규등록")

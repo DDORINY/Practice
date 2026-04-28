@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>모니터링 대시보드</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+    <main class="monitor">
+        <header class="alert-header">
+            <div class="alert-title">
+                <span class="helmet-icon" aria-hidden="true">!</span>
+                <h1><strong>모니터링 대시보드</strong></h1>
+            </div>
+            <a class="back-button" href="{{ flask_url }}" aria-label="Flask 앱으로 이동" title="Flask 앱으로 이동">←</a>
+        </header>
+
+        <section class="event-summary" aria-label="감지 이벤트 요약">
+            <dl>
+                <div>
+                    <dt>감지 이벤트</dt>
+                    <dd>실시간 분석 대기</dd>
+                </div>
+                <div>
+                    <dt>현재 시간</dt>
+                    <dd id="cctvTime">-</dd>
+                </div>
+                <div>
+                    <dt>카메라</dt>
+                    <dd>IPCAM-01</dd>
+                </div>
+                <div>
+                    <dt>정확도</dt>
+                    <dd class="score">-</dd>
+                </div>
+                <div>
+                    <dt>발생 위치</dt>
+                    <dd>현장</dd>
+                </div>
+            </dl>
+        </section>
+
+        <section class="camera-grid">
+            <article class="camera-card event">
+                <div class="panel-bar">
+                    <span class="badge danger">ITS CCTV</span>
+                    <time id="itsStatus">지역 선택 대기</time>
+                </div>
+                <div class="its-browser">
+                    <div class="its-controls">
+                        <label>
+                            <span>지역</span>
+                            <select id="cctvRegion"></select>
+                        </label>
+                        <label>
+                            <span>도로</span>
+                            <select id="cctvRoadType">
+                                <option value="its">국도</option>
+                                <option value="ex">고속도로</option>
+                            </select>
+                        </label>
+                        <label>
+                            <span>영상</span>
+                            <select id="cctvType">
+                                <option value="4">HLS HTTPS</option>
+                                <option value="1">HLS</option>
+                                <option value="5">MP4 HTTPS</option>
+                                <option value="2">MP4</option>
+                                <option value="3">정지 영상</option>
+                            </select>
+                        </label>
+                        <button id="cctvLoadButton" type="button">조회</button>
+                    </div>
+
+                    <div class="its-player">
+                        <video id="itsVideo" controls muted playsinline></video>
+                        <img id="itsImage" alt="ITS CCTV 정지 영상">
+                        <div id="itsEmpty" class="its-empty">지역을 선택하면 CCTV 목록이 표시됩니다.</div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="camera-card live">
+                <div class="panel-bar">
+                    <span class="badge live">Live</span>
+                    <time id="clock">--:--:--</time>
+                </div>
+                <div class="video-frame live-preview">
+                    <div class="stream-status">
+                        <span id="aiSocketStatus">AI 서버 연결 대기</span>
+                    </div>
+                    <div class="parking-scene live-scene">
+                        <span class="column c1"></span>
+                        <span class="column c2"></span>
+                        <span class="column c3"></span>
+                        <span class="lane"></span>
+                    </div>
+                    <div class="stream-panel">
+                        <div class="stream-card ipcam-stream">
+                            <div class="stream-title">IP Camera AI Stream</div>
+                            <img id="ipcamView" class="stream-view" alt="IP Camera AI Stream">
+                        </div>
+
+                        <div class="stream-card webcam-stream">
+                            <div class="stream-title">Webcam AI Stream</div>
+                            <img id="webcamView" class="stream-view" alt="Webcam AI Stream">
+                        </div>
+                    </div>
+                    <video id="browserWebcam" autoplay muted playsinline hidden></video>
+                    <canvas id="webcamCanvas" hidden></canvas>
+                </div>
+            </article>
+
+            <aside class="thumb-panel">
+                <h2>선택 CCTV</h2>
+                <dl class="cctv-detail">
+                    <div>
+                        <dt>이름</dt>
+                        <dd id="selectedCctvName">-</dd>
+                    </div>
+                    <div>
+                        <dt>형식</dt>
+                        <dd id="selectedCctvFormat">-</dd>
+                    </div>
+                    <div>
+                        <dt>해상도</dt>
+                        <dd id="selectedCctvResolution">-</dd>
+                    </div>
+                    <div>
+                        <dt>좌표</dt>
+                        <dd id="selectedCctvCoord">-</dd>
+                    </div>
+                </dl>
+            </aside>
+
+            <section class="queue-panel">
+                <div class="queue-head">
+                    <h2 id="cctvListTitle">지역 CCTV (0)</h2>
+                    <div class="tabs">
+                        <button id="cctvRefreshButton" type="button" class="active">새로고침</button>
+                    </div>
+                </div>
+                <div id="cctvList" class="cctv-list">
+                    <div class="empty-state">
+                        <span aria-hidden="true">+</span>
+                        <p>CCTV를 조회해 주세요.</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <footer class="action-bar">
+            <div class="system-strip" id="statusGrid" aria-live="polite">
+                <span class="service-pill loading">상태 확인 중</span>
+            </div>
+            <label class="radio">
+                <input type="radio" name="event-state" checked>
+                <span>현장 조치</span>
+            </label>
+            <label class="radio">
+                <input type="radio" name="event-state">
+                <span>오탐</span>
+            </label>
+            <button class="process-button" type="button">이벤트 처리</button>
+        </footer>
+    </main>
+    <script>
+        window.AI_BASE_URL = "{{ ai_base_url }}";
+    </script>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.20/dist/hls.min.js"></script>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>
