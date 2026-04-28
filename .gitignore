@@ -1,6 +1,6 @@
-.venv/
+.env
 venv/
 __pycache__/
 *.pyc
-.env*.pt
-*.pt
+logs/
+*.sqlite
